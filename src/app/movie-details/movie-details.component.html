@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row card-group">
+    <img
+      src="https://www.themoviedb.org/t/p/w1280{{ movie.poster_path }}"
+      class="img-fluid"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ movie.title }}</h5>
+      <div fxLayoutGap="row" fxLayoutAlign="space-around center">
+        <p class="card-text">
+          <span class="type">Release Date: </span>{{ movie.release_date }}
+        </p>
+        <p class="card-text">
+          <span class="type">Movie Popularity: </span>{{ movie.popularity }}
+        </p>
+        <p class="card-text">
+          <span class="type">Overview: </span> {{ movie.overview }}
+        </p>
+      </div>
+      <!-- <a [routerLink]="['/home']" class="btn btn-primary">back</a> -->
+    </div>
+  </div>
+</div>

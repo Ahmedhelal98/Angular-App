@@ -1,0 +1,40 @@
+<div class="films">
+  <ng-container *ngFor="let movie of topRated">
+    <div class="film">
+      <div class="film-thumb-container">
+        <img
+          class="film-thumbnail"
+          *ngIf="movie?.poster_path"
+          src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{
+            movie?.poster_path
+          }}"
+          [alt]="movie.title ? movie.title : movie.name"
+        />
+      </div>
+      <div class="film-description">
+        <!-- <h6 class="film-name">{{ movie?.title }}</h6> -->
+        <a [routerLink]="['/details', movie.id]" class="btn btn-warning"
+          >More Details</a
+        >
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<!--
+<main role="main" class="container" ng-controller="MyController">
+
+  ///////// *ngIf="!film.results.backdrop_path"
+
+
+  <div class="jumbotron">
+    <h1>Home</h1>
+    <p class="lead">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
+      temporibus laborum facere dolor ipsum. Sint est laudantium recusandae
+      labore explicabo, doloribus dolor, corporis, ab laboriosam nam iste quo
+      beatae. Doloremque.
+    </p>
+  </div>
+</main>
+-->

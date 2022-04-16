@@ -1,0 +1,57 @@
+.films {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.film {
+  width: 280px;
+  margin: 10px;
+  height: 330px;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #202020;
+  transition-duration: 0.3s;
+  box-shadow: 4px 3px 8px 0px rgba($color: #d5c1c1, $alpha: 1);
+  cursor: pointer;
+}
+
+.film:hover {
+  box-shadow: 4px 3px 11px 6px rgba($color: #3f3d3d, $alpha: 1);
+  transform: translateY(-3px);
+}
+
+.film-thumb-container {
+  background-color: black;
+  position: relative;
+  height: 250px;
+  columns: #fff;
+  text-align: center;
+}
+
+.film-thumbnail {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.film-description {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 80px;
+}
+
+.film-name {
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
