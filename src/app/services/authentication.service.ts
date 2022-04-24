@@ -6,30 +6,14 @@ import { Router } from "@angular/router";
   providedIn: "root",
 })
 export class AuthenticationService {
-  private readonly mockUser: SignInData = new SignInData(
+  readonly mockUser: SignInData = new SignInData(
     "ahmedmostafa@gmail.com",
     "a123"
   );
-  isAuthenticated = false;
+
+  isAuthenticated: any = false;
 
   constructor(private router: Router) {}
-
-  authenticate(signInData: SignInData): boolean {
-    if (this.checkCredentials(signInData)) {
-      this.isAuthenticated = true;
-      this.router.navigate(["home"]);
-      return true;
-    }
-    this.isAuthenticated = false;
-    return false;
-  }
-
-  private checkCredentials(signInData: SignInData): boolean {
-    return (
-      this.checkLogin(signInData.getLogin()) &&
-      this.checkPassword(signInData.getPassword())
-    );
-  }
 
   private checkLogin(login: string): boolean {
     return login === this.mockUser.getLogin();
@@ -39,6 +23,22 @@ export class AuthenticationService {
     return password === this.mockUser.getPassword();
   }
 
+  private checkCredentials(signInData: SignInData): boolean {
+    return (
+      this.checkLogin(signInData.getLogin()) &&
+      this.checkPassword(signInData.getPassword())
+    );
+  }
+  authenticate(signInData: SignInData): any {
+    if (this.checkCredentials(signInData)) {
+      localStorage.setItem(this.isAuthenticated, "true");
+      this.router.navigate(["home"]);
+      return true;
+    }
+    // this.isAuthenticated = false;
+    // return false;
+  }
+  if() {}
   logout() {
     this.isAuthenticated = false;
     this.router.navigate([""]);

@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { HomeComponent } from "../home/home.component";
-import { ActivatedRoute, Params, Router } from "@angular/router";
+import { ActivatedRoute, Params } from "@angular/router";
 import { MovieService } from "../movie.service";
 import { movieDetailsModel } from "../services/movieModel";
+import { Router } from "@angular/router";
 import { AuthenticationService } from "../services/authentication.service";
 
 @Component({
@@ -18,13 +19,22 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private isAuthicated: AuthenticationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get("id");
-    this.movieService.getMovieById(this.id).subscribe((response) => {
-      this.movie = response;
-    });
+    this.isAuthicated.isAuthenticated = localStorage.getItem(
+      this.isAuthicated.isAuthenticated
+    );
+    if (this.isAuthicated.isAuthenticated) {
+      this.id = this.route.snapshot.paramMap.get("id");
+      this.movieService.getMovieById(this.id).subscribe((response) => {
+        this.movie = response;
+      });
+    } else {
+      this.router.navigate([""]);
+    }
   }
 }

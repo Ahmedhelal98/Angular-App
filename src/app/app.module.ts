@@ -7,10 +7,20 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieDetailsComponent } from "./movie-details/movie-details.component";
+import {
+  HashLocationStrategy,
+  LocationStrategy,
+  PathLocationStrategy,
+} from "@angular/common";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, MovieDetailsComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    MovieDetailsComponent,
+  ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

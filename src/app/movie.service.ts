@@ -31,9 +31,11 @@ export class MovieService {
     return this.httpClient.get<any>(
       "https://api.themoviedb.org/3/movie/" +
         id +
-        "?api_key=33a042ea56fc03031d585e17c53ffeda"
+        "?api_key=33a042ea56fc03031d585e17c53ffeda&language=en-US"
     );
   }
+
+  // getMovieSerch
 
   //getMovieById(id: number): Observable<>;
 }
